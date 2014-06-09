@@ -1,4 +1,4 @@
-source('C:/Users/NB/Google Drive/Data Analysis/Shinies/Quiz ii/Globals.R')
+source('Globals.R')
 
 # Define UI for Quiz application
 shinyUI(bootstrapPage(

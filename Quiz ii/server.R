@@ -1,6 +1,8 @@
 #Load all necessary supporting files
-source("C:/Users/NB/Google Drive/Data Analysis/Shinies/Quiz ii/Setup.R")
-source('C:/Users/NB/Google Drive/Data Analysis/Shinies/Quiz ii/Globals.R')
+library(shiny)
+library(plyr)
+source('Globals.R')
+source('Setup.R')
 
 #Set up server
 shinyServer(function(input, output) {

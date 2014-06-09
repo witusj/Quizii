@@ -1,14 +1,11 @@
-# Function to check whether a package exists
-source('C:/Users/NB/Google Drive/Data Analysis/Shinies/Quiz ii/Globals.R')
-
-IsInstalled <- function(mypkg) is.element(mypkg, installed.packages()[,1])
+source('Globals.R')
 
 # Function to check question
 chkQuestion <- function(answer, correct, index) {
-  last[index] <<- answer
   message <- if(answer == correct) 'Correct' else 'False'
   return(message)}
 
+# Functions to calculate score
 scrQuestion1 <- function(result1) {
   vscore1 <- (result1 == 'False') * -1
   tscore1 <<- tscore1 + vscore1
