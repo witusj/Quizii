@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
   
   #Build user interface with 1 radio button per question. Save choices
   #in reactive variables. Set initial choice to zero (no choice)
-  output$ui <- renderUI({list(
+  output$ui <- renderUI({fluidPage(
     
     radioButtons('answ1', paste('Q1 -',vraag$Vraag[1]),
                  c(vraag[1,m[1]],
@@ -41,24 +41,32 @@ shinyServer(function(input, output) {
                  c(vraag[3,p[1]],
                    vraag[3,p[2]],
                    vraag[3,p[3]],
-                   vraag[3,p[4]]), selected = 0)
+                   vraag[3,p[4]]), selected = 0),
+    
+    actionButton('goButton', 'Send')
   )
     })
   #Build server output
   
   ##Check questions and put results (Correct/False) in reactive variable.
   ##Initial choice (no choice) is neutral and equals 'Choose'
-  rltInput1 <- reactive({try_default(chkQuestion(input$answ1, values$corr1,1),
-                                     default = 'Choose', quiet = TRUE)})
-  rltInput2 <- reactive({try_default(chkQuestion(input$answ2, values$corr2,2),
-                                     default = 'Choose', quiet = TRUE)})
-  rltInput3 <- reactive({try_default(chkQuestion(input$answ3, values$corr3,3),
-                                     default = 'Choose', quiet = TRUE)})
+  rltInput1 <- reactive({input$goButton
+                         isolate(try_default(chkQuestion(input$answ1, values$corr1,1),
+                                     default = 'Choose', quiet = TRUE))
+                        })
+  rltInput2 <- reactive({input$goButton
+                         isolate(try_default(chkQuestion(input$answ2, values$corr2,2),
+                                             default = 'Choose', quiet = TRUE))
+                        })
+  rltInput3 <- reactive({input$goButton
+                         isolate(try_default(chkQuestion(input$answ3, values$corr3,3),
+                                             default = 'Choose', quiet = TRUE))
+                        })
     
   ##Print results
-  output$result1 <- renderPrint({paste('Q1:',rltInput1())})
-  output$result2 <- renderPrint({paste('Q2:',rltInput2())})
-  output$result3 <- renderPrint({paste('Q3:',rltInput3())})
+  output$result1 <- renderText({paste('Q1:',rltInput1())})
+  output$result2 <- renderText({paste('Q2:',rltInput2())})
+  output$result3 <- renderText({paste('Q3:',rltInput3())})
   
   ##Calculate points left per question
   scrInput1 <- reactive({scrQuestion1(rltInput1())})
@@ -66,7 +74,7 @@ shinyServer(function(input, output) {
   scrInput3 <- reactive({scrQuestion3(rltInput3())})
   
   ##Calculate total points left and print result
-  output$scr <- renderPrint({paste0('Your score is: ',scrInput1() + scrInput2() + scrInput3(),
+  output$scr <- renderText({paste0('Your score is: ',scrInput1() + scrInput2() + scrInput3(),
                                    ' (which equals ', round((scrInput1() + scrInput2() + scrInput3())*100/6,0),
                                    '%)')})
   })
