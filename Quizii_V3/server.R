@@ -24,7 +24,7 @@ shinyServer(function(input, output) {
   #Build user interface with 1 radio button per question. Save choices
   #in reactive variables. Set initial choice to zero (no choice)
   output$ui <- renderUI({fluidPage(
-    
+        
     radioButtons('answ1', paste('Q1 -',vraag$Vraag[1]),
                  c(vraag[1,m[1]],
                    vraag[1,m[2]],

@@ -1,7 +1,9 @@
 function listener(event){
-  var userDataVariableName = event.data
+  Shiny.unbindAll();
+  var userDataVariableName = event.data;
   var userData = document.getElementById("userData"); 
   userData.value = userDataVariableName;
+  Shiny.bindAll();
 }
 
 if (window.addEventListener){

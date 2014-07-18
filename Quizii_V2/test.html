@@ -1,6 +1,9 @@
 <div id="test">Send me a message!</div>
 <script>
 function listener(event){
+  if ( event.origin !== "http://javascript.info" )
+    return
+
   document.getElementById("test").innerHTML = "received: "+event.data
 }
 
@@ -10,3 +13,4 @@ if (window.addEventListener){
   attachEvent("onmessage", listener)
 }
 </script>
+

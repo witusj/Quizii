@@ -4,7 +4,7 @@ source('Globals.R')
 shinyUI(fluidPage(
   
   titlePanel('Quiz'),
-  
+
   fluidRow(
 
     column(8,
@@ -14,7 +14,7 @@ shinyUI(fluidPage(
            uiOutput("ui")),
            
     # Hidden input boxes to save the variable to 
-    HTML(' <input type="text" id="userData" name="userData" value="zero" style="display: inline;"> '),
+    HTML(' <input type="text" id="userData" name="userData" value="zero" style="display: none;"> '),
     
     # include the js code 
     includeScript("www/get_user_id.js"),
