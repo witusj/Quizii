@@ -80,10 +80,9 @@ shinyServer(function(input, output) {
                                    '%)')})
 
   userData <- reactive({input$goButton
-                         isolate(input$userData)
+                         strsplit(isolate(input$userData),',')
                         })
-
-  output$view <- renderText(paste0("User Data is: ",userData()))
+  output$view <- renderText(paste0("User name: ",userData()[[1]][1],", User ID: ",userData()[[1]][2]))
 
   })
 
