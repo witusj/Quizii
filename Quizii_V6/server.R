@@ -7,43 +7,45 @@ source('Setup.R')
 #Set up server
 shinyServer(function(input, output, session) {
   
-  ##Sample 3 questions from database and for each question randomly choose
+  ##Sample n MC questions from database and for each MC question randomly choose
   ##order of answers. Save correct answers in reactive value variables.
-  n <- sample(c(1:length(questions$Vraag)), size =3)
-  m <- sample(c(4:7), size =4, replace=FALSE)
-  s <- sample(c(4:7), size =4, replace=FALSE)
-  p <- sample(c(4:7), size =4, replace=FALSE)
+  n <- sample(c(1:length(questionsMC$Vraag)), size =3)
+  a <- sample(c(6:9), size =4, replace=FALSE)
+  b <- sample(c(6:9), size =4, replace=FALSE)
+  d <- sample(c(6:9), size =4, replace=FALSE)
   
-  vraag <<- questions[n,]
+  vraagMC <<- questionsMC[n,]
+  vraagOpen <<- questionsOpen[1,]
   
   values <- reactiveValues()
-  values[['corr1']] <- vraag$Antwoord[1]
-  values[['corr2']] <- vraag$Antwoord[2]
-  values[['corr3']] <- vraag$Antwoord[3]
+  values[['corr1']] <- vraagMC$Antwoord[1]
+  values[['corr2']] <- vraagMC$Antwoord[2]
+  values[['corr3']] <- vraagMC$Antwoord[3]
+  values[['corr4']] <- vraagOpen$Antwoord[1]
   
-  #Build user interface with 1 radio button per question. Save choices
-  #in reactive variables. Set initial choice to zero (no choice)
+  ##Build user interface with 5 MC and 5 open questions. Save choices
+  ##in reactive variables. Set initial choice to zero (no choice)
   output$ui <- renderUI({fluidPage(
         
-    radioButtons('answ1', paste('Q1 -',vraag$Vraag[1]),
-                 c(vraag[1,m[1]],
-                   vraag[1,m[2]],
-                   vraag[1,m[3]],
-                   vraag[1,m[4]]), selected = 0),
+    radioButtons('answ1', paste('Q1 -',vraagMC$Vraag[1]),
+                 c(vraagMC[1,a[1]],
+                   vraagMC[1,a[2]],
+                   vraagMC[1,a[3]],
+                   vraagMC[1,a[4]]), selected = 0),
     
-    radioButtons('answ2', paste('Q2 -',vraag$Vraag[2]),
-                 c(vraag[2,s[1]],
-                   vraag[2,s[2]],
-                   vraag[2,s[3]],
-                   vraag[2,s[4]]), selected = 0),
+    radioButtons('answ2', paste('Q2 -',vraagMC$Vraag[2]),
+                 c(vraagMC[2,b[1]],
+                   vraagMC[2,b[2]],
+                   vraagMC[2,b[3]],
+                   vraagMC[2,b[4]]), selected = 0),
     
-    radioButtons('answ3', paste('Q3 -',vraag$Vraag[3]),
-                 c(vraag[3,p[1]],
-                   vraag[3,p[2]],
-                   vraag[3,p[3]],
-                   vraag[3,p[4]]), selected = 0),
+    radioButtons('answ3', paste('Q3 -',vraagMC$Vraag[3]),
+                 c(vraagMC[3,d[1]],
+                   vraagMC[3,d[2]],
+                   vraagMC[3,d[3]],
+                   vraagMC[3,d[4]]), selected = 0),
     
-    textInput('answ4', 'V4 - Noem de leasevorm waarbij de lessee economisch eigenaar is.', value = ''),
+    textInput('answ4', vraagOpen$Vraag[1], value = ''),
     
     actionButton('goButton', 'Send')
   )
@@ -67,21 +69,21 @@ shinyServer(function(input, output, session) {
                         })
   
   rltInput4 <- reactive({input$goButton 
-                         isolate(try_default(chkQuestionOpen(input$answ4, "[Ff]inancial"),
+                         isolate(try_default(chkQuestionOpen(input$answ4, values$corr4),
                                              default = 'Leeg', quiet = TRUE))
   })
   
   ##Print results
-  output$result1 <- renderText({paste('Q1:',rltInput1())})
-  output$result2 <- renderText({paste('Q2:',rltInput2())})
-  output$result3 <- renderText({paste('Q3:',rltInput3())})
+  output$result1 <- renderText({paste('V1:',rltInput1())})
+  output$result2 <- renderText({paste('V2:',rltInput2())})
+  output$result3 <- renderText({paste('V3:',rltInput3())})
   output$result4 <- renderText({paste('V4:',rltInput4())})
   
   ##Calculate points left per MC question and only add them when answer is correct
-  scrInput1 <- reactive({scrQuestion1(rltInput1())*(rltInput1()=='Correct')})
-  scrInput2 <- reactive({scrQuestion2(rltInput2())*(rltInput2()=='Correct')})
-  scrInput3 <- reactive({scrQuestion3(rltInput3())*(rltInput3()=='Correct')})
-  scrInput4 <- reactive({scrQuestion4(rltInput4())*(rltInput4()=='Correct')})
+  scrInput1 <- reactive({scrQuestion(rltInput1(),1)*(rltInput1()=='Correct')})
+  scrInput2 <- reactive({scrQuestion(rltInput2(),2)*(rltInput2()=='Correct')})
+  scrInput3 <- reactive({scrQuestion(rltInput3(),3)*(rltInput3()=='Correct')})
+  scrInput4 <- reactive({scrQuestion(rltInput4(),4)*(rltInput4()=='Correct')})
   
   ##Calculate total points left and print result
   output$scr <- renderText({paste0('Your score is: ',scrInput1() + scrInput2() + scrInput3() + scrInput4(),
@@ -110,7 +112,7 @@ shinyServer(function(input, output, session) {
   ##Check whether number of trials variable is empty and if not save data to csv
   observe({if(length(trials()) != 0) {
           quiz <- data.frame(Sys.time(), urlText(), session$clientData$url_search,
-                             userData()[[1]][1], userData()[[1]][2], trials(), scrInput1(), scrInput2(), scrInput3())
+                             userData()[[1]][1], userData()[[1]][2], trials(), scrInput1(), scrInput2(), scrInput3(), scrInput4())
           write.table(quiz, file='results.csv', append=TRUE, sep=",", row.names=FALSE,
                       col.names=FALSE)
           }
