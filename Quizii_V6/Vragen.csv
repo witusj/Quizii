@@ -1,17 +1,44 @@
-,Onderwerp,Subcategorie,Type,Vraag,Antwoord,Alternatief 1,Alternatief 2,Alternatief 3
-1,Finance,Contante waarde,MC,"Een bedrijf verwacht over een jaar 100.000 EUR te ontvangen. Dit bedrag is gegarandeerd. Als de rentevoet 8% per annum bedraagt, dan is het maximale bedrag dat het bedrijf nu kan uitgeven gelijk aan:",92.593 EUR,92.000 EUR,108.000 EUR,8.000 EUR
-2,Finance,Contante waarde,MC,"Een bedrijf verwacht over twee jaar een betaling van een klant ter hoogte van 121.000 EUR te ontvangen. Dit bedrag is gegarandeerd. Als de rentevoet 10% per annum bedraagt, dan is het maximale bedrag dat het bedrijf nu kan uitgeven gelijk aan:",100.000 EUR,96.800EUR,146.410 EUR,145.200 EUR
-3,Finance,Cost of equity,MC,"Als de risicovrije rentevoet 2% bedraagt, de premie voor marktrisico op 8% wordt gesteld en de beta van een bedrijf 1.25 is, dan is de is de beste schatting van het vereist rendement op het eigen vermogen:",12%,10%,8%,6%
-4,Finance,Cost of equity,MC,De risicopremie in de CAPM is een vergoeding voor:,het systematisch risico van een belegging,het onsystematisch risico van een belegging,het renterisico van een lening,het algemene investeringsrisico
-5,Finance,Derivaten,MC,Het recht om een gegeven activum te verkopen tegen een vooraf vastgestelde prijs aan het einde van of gedurende een bepaalde periode is een:,put optie,call optie,future,swap
-6,Financial Accounting,Jaarrekening,MC,Ebit is gelijk aan:,omzet min kosten (exclusief de financieringskosten),omzet min alle kosten,omzet min kosten en belastingen,omzet min kosten (exclusief afschrijvingen)
-7,Financial Accounting,Kengetallen,MC,Een bedrijf heeft 60.000 EUR geinvesteerd in vlottende activa en een vermogen van 100.000 EUR waarvan 50% uit kort vreemd vermogen bestaat. In dit geval is de current ratio:,1.2,0.8,0.7,0.5
-8,Financial Accounting,Kengetallen,MC,"Als de RTV 8%, de KVV 4%, de debt ratio 50% en de belastingvoet 25% bedraagt, dan is de REV gelijk aan:",9%,4%,7.50%,1.50%
-9,Financial Accounting,Kengetallen,MC,Een bedrijf heeft een debt ratio van 60%. In dat geval bedraagt de verhouding VV / EV:,1.5,0.4,0.6,1
-10,Financial Accounting,Kengetallen,MC,"Van een bedrijf zijn volgende kengetallen bekend: nettowinstmarge is 3%, de verhouding VV/EV is 1.5 en de omzetsnelheid van het totale vermogen bedraagt 2. In dat geval is de REV:",15%,33%,9%,4%
-11,Management Accounting,Cashflows,MC,Welke van de volgende items is geen cashflow?,Afschrijvingskosten,Schuldaflossing,Interestkosten,Betaling van een boete
-12,Management Accounting,Kostprijs,MC,De standaardkostprijs bevat alleen:,de kosten van input die de klanten bereid zijn de vergoeden,alle inputkosten,de kosten die de onderneming daadwerkelijk heeft gemaakt,alle inputkosten plus een winstmarge
-13,Management Accounting,Resultatenrekening,MC,Een bedrijf realiseerde in Januari een omzet van 800.000 EUR (exclusief BTW). De beginvoorraad voor die maand had een waarde van 100.000 en de eindvoorraad 120.000 EUR. De inkopen bedroegen 520.000 EUR. Overige kosten (uitgezonderd de inkoopwaarde van de omzet) waren 150.000 EUR. In dit geval bedroeg de EBT:,150.000 EUR,130.000 EUR,650.000 EUR,30.000 EUR
-14,Management Accounting,Verschillenanalyse,MC,Welk type verschil kan alleen worden berekend voor variabele kosten?,efficientie,flexibel-budget,bezetting,ex-ante
-15,Management Accounting,Verschillenanalyse,MC,Welk type verschil kan alleen worden berekend voor vaste kosten?,bezetting,flexibel-budget,efficientie,ex-ante
-16,Financial Accounting,Jaarrekening,Open,Bij welke leasevorm is de lessee de economisch eigenaar van het geleasde activum?,[Ff]inancial,,,
+Set,Onderwerp,Subcategorie,Type,Vraag,Antwoord,Alternatief 1,Alternatief 2,Alternatief 3
+1,Financial Accounting,Vermogensbehoefte,MC,Welk overzicht gebruikt een organisatie voor de bepaling van de behoefte aan externe financiering?,liquiditeitsbegroting,winst-en-verliesrekening,resultatenbegroting,balans
+1,Financial Accounting,Vermogensbehoefte,MC,Een lagere gemiddelde voorraad (bijvoorbeeld door JIT) heeft een positief effect op:,de omloopsnelheid van het totaal vermogen,de mogelijkheid om op korte termijn dividend uit te keren,de afschrijvingskosten,de waarde van de activa
+1,Financial Accounting,Vermogensbehoefte,MC,In de premie die een factoringbedrijf in rekening brengt zit een vergoeding voor:,insolventierisico,transportkosten,facturering van de geleverde goederen,BTW verrekening
+1,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 5 jaar voor 100000 EUR. De restwaarde is 0 EUR. De machine is voor 50 procent gefinancierd met vreemdvermogen en voor het overige via eigen middelen. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
+- Grondstoffen: 8 EUR
+- Salarissen: 12 EUR
+De producten worden voor 50 EUR per stuk verkocht (contant). Voor de komende 5 jaar gaat men er van uit dat de machine jaarlijks 2.000 eenheden zal produceren, die direct zullen worden verkocht.
+Bereken de mutatie van de liquide middelen in het tweede jaar.",50000,40000,30000,60000
+1,Financial Accounting,Vermogensbehoefte,MC,Eigen vermogen is risicodragend omdat:,de vergoeding voor de vermogenverschaffers onzeker is,de vergoeding gekoppeld is aan de marktrente (EURIBOR),de waarde van aandelen kan fluctueren,het nooit wordt afgelost
+1,Financial Accounting,Vermogensbehoefte,Open,Noem de leasevorm waarbij de lessee gedurende de gehele leaseperiode economisch eigenaar  is van het geleasde activum.,[Ff]inancial,,,
+1,Financial Accounting,Vermogensbehoefte,Open,Welke dienstverlening zorgt er voor dat de gemiddelde betaaltermijn van het debiteurensaldo verminderd?,[Ff]actoring,,,
+1,Financial Accounting,Vermogensbehoefte,Open,"Een onderneming heeft aandelen uitgegeven ter waarde van 28 EUR per aandeel. Door de emissie neemt het geplaatst aandelenkapitaal met 1 EUR per aandeel toe. Een maand na de emissie is de aandelenkoers gedaald tot 25,50 EUR. Hoeveel bedroeg de agio per aandeel?",(27 ?(EUR)?),,,
+1,Financial Accounting,Vermogensbehoefte,Open,Onderneming A neemt onderneming B over. De activa van B zijn getaxeerd op een marktwaarde van 400.000 EUR. Het totale vermogen van B heeft een boekwaarde van 300.000 EUR en bestaat voor 50% uit vreemd vermogen. Alle aandelen van B zullen door A worden overgenomen voor een bedrag van 600.000 EUR. Bereken hoeveel Goodwill A betaalt bij de overname.,(350.?000 ?(EUR)?),,,
+1,Financial Accounting,Vermogensbehoefte,Open,Een onderneming heeft 10.000 converteerbare obligaties uitgegeven met een nominale waarde van 1000 EUR. Als de obligatiehouders 1 obligatie inleveren en 600 EUR bijbetalen ontvangen ze 40 nieuwe aandelen met een nominale waarde van 10 EUR per stuk. Bereken met hoeveel de post Agioreserve zal toenemen als alle obligaties zullen worden omgeruild in aandelen.,(12.?000.?000 ?(EUR)?),,,
+2,Financial Accounting,Vermogensbehoefte,MC,Een vermindering van de post 'Debiteuren' heeft een positief effect op:,de omloopsnelheid van het totaal vermogen,de mogelijkheid om op korte termijn dividend uit te keren,de afschrijvingskosten,de waarde van de activa
+2,Financial Accounting,Vermogensbehoefte,MC,Intensieve financiering vermindert:,de behoefte aan externe financiering,de balanswaarde van de post liquide middelen,de omzetsnelheid van het totaal vermogen,de levensduur van de activa
+2,Financial Accounting,Vermogensbehoefte,MC,Welke balansposten worden direct beinvloed als een bedrijf overgaat op factoring?,liquide middelen en debiteuren,voorraden en debiteuren,eigen vermogen en debiteuren,voorraden en liquide middelen
+2,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 6 jaar voor 120000 EUR. De restwaarde is 0 EUR. De machine is voor 25 procent gefinancierd met vreemdvermogen en voor het overige via intensieve financiering. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
+- Grondstoffen: 11 EUR
+- Salarissen: 14 EUR
+De producten worden voor 50 EUR per stuk verkocht (contant).
+Bereken de mutatie van de liquide middelen.",45000,30000,25000,50000
+,,,,,,,,
+2,Financial Accounting,Vermogensbehoefte,Open,"Noem het systeem waarbij vorderingen op klanten worden verpand en het te vorderen bedrag direct (of in tranches) wordt uitgekeerd (eventueel onder aftrek van kosten voor administratie, verzekering en rente).",[Ff]actoring,,,
+2,Financial Accounting,Vermogensbehoefte,Open,Noem de leasevorm waardoor balansverkorting plaatsvindt.,[Oo]perational,,,
+,,,,,,,,
+,,,,,,,,
+3,Financial Accounting,Vermogensbehoefte,MC,Bij welke financieringsvorm vindt GEEN balansverkorting plaats?,Financial lease,Sale and lease back,Operational lease,Factoring
+,Finance,Contante waarde,MC,"Een bedrijf verwacht over een jaar 100.000 EUR te ontvangen. Dit bedrag is gegarandeerd. Als de rentevoet 8% per annum bedraagt, dan is het maximale bedrag dat het bedrijf nu kan uitgeven gelijk aan:",92.593 EUR,92.000 EUR,108.000 EUR,8.000 EUR
+,Finance,Contante waarde,MC,"Een bedrijf verwacht over twee jaar een betaling van een klant ter hoogte van 121.000 EUR te ontvangen. Dit bedrag is gegarandeerd. Als de rentevoet 10% per annum bedraagt, dan is het maximale bedrag dat het bedrijf nu kan uitgeven gelijk aan:",100.000 EUR,96.800EUR,146.410 EUR,145.200 EUR
+,Finance,Cost of equity,MC,"Als de risicovrije rentevoet 2% bedraagt, de premie voor marktrisico op 8% wordt gesteld en de beta van een bedrijf 1.25 is, dan is de is de beste schatting van het vereist rendement op het eigen vermogen:",12%,10%,8%,6%
+,Finance,Cost of equity,MC,De risicopremie in de CAPM is een vergoeding voor:,het systematisch risico van een belegging,het onsystematisch risico van een belegging,het renterisico van een lening,het algemene investeringsrisico
+,Finance,Derivaten,MC,Het recht om een gegeven activum te verkopen tegen een vooraf vastgestelde prijs aan het einde van of gedurende een bepaalde periode is een:,put optie,call optie,future,swap
+,Financial Accounting,Kengetallen,MC,Ebit is gelijk aan:,omzet min kosten (exclusief de financieringskosten),omzet min alle kosten,omzet min kosten en belastingen,omzet min kosten (exclusief afschrijvingen)
+,Financial Accounting,Kengetallen,MC,Een bedrijf heeft 60.000 EUR geinvesteerd in vlottende activa en een vermogen van 100.000 EUR waarvan 50% uit kort vreemd vermogen bestaat. In dit geval is de current ratio:,1.2,0.8,0.7,0.5
+,Financial Accounting,Kengetallen,MC,"Als de RTV 8%, de KVV 4%, de debt ratio 50% en de belastingvoet 25% bedraagt, dan is de REV gelijk aan:",9%,4%,7.50%,1.50%
+,Financial Accounting,Kengetallen,MC,Een bedrijf heeft een debt ratio van 60%. In dat geval bedraagt de verhouding VV / EV:,1.5,0.4,0.6,1
+,Financial Accounting,Kengetallen,MC,"Van een bedrijf zijn volgende kengetallen bekend: nettowinstmarge is 3%, de verhouding VV/EV is 1.5 en de omzetsnelheid van het totale vermogen bedraagt 2. In dat geval is de REV:",15%,33%,9%,4%
+,Management Accounting,Cashflows,MC,Welke van de volgende items is geen cashflow?,Afschrijvingskosten,Schuldaflossing,Interestkosten,Betaling van een boete
+,Management Accounting,Kostprijs,MC,De standaardkostprijs bevat alleen:,de kosten van input die de klanten bereid zijn de vergoeden,alle inputkosten,de kosten die de onderneming daadwerkelijk heeft gemaakt,alle inputkosten plus een winstmarge
+,Management Accounting,Resultatenrekening,MC,Een bedrijf realiseerde in Januari een omzet van 800.000 EUR (exclusief BTW). De beginvoorraad voor die maand had een waarde van 100.000 en de eindvoorraad 120.000 EUR. De inkopen bedroegen 520.000 EUR. Overige kosten (uitgezonderd de inkoopwaarde van de omzet) waren 150.000 EUR. In dit geval bedroeg de EBT:,150.000 EUR,130.000 EUR,650.000 EUR,30.000 EUR
+,Management Accounting,Verschillenanalyse,MC,Welk type verschil kan alleen worden berekend voor variabele kosten?,efficientie,flexibel-budget,bezetting,ex-ante
+,Management Accounting,Verschillenanalyse,MC,Welk type verschil kan alleen worden berekend voor vaste kosten?,bezetting,flexibel-budget,efficientie,ex-ante

@@ -1,0 +1,32 @@
+<?php
+global $current_user;
+get_currentuserinfo();
+$user_name = $current_user--->user_login;
+$user_ID = get_current_user_id();
+
+define('BASE_URL','http://ec2-54-76-89-164.eu-west-1.compute.amazonaws.com:3838/Quizii');
+function build_url()
+{
+return BASE_URL . '?' . implode(func_get_args(),'&');
+}
+
+$url = build_url($user_name, $user_ID);
+?>
+
+<script>
+var username = <?php echo json_encode($user_name) ?> ; 
+var userID = <?php echo json_encode($user_ID) ?> ;
+</script>
+
+<script>
+function dataMessage(){
+     var message = username+","+userID+"\n";
+     var origin  = "http://ec2-54-76-89-164.eu-west-1.compute.amazonaws.com:3838";
+     var theIframe = document.getElementById("iframe");
+     theIframe.contentWindow.postMessage(message, origin);
+}
+</script>
+
+<iframe id="iframe" style="border: none; width: 100%; height: 500px;" src="<? echo $url; ?>;" width="300" height="150" frameborder="0"></iframe>
+
+Alleen deelnemers die zijn<a href="http://www.allmoocs.nl/wordpress/wp-login.php?redirect_to=http%3A%2F%2Fwww.allmoocs.nl%2Fwordpress"> ingelogd</a> kunnen deelnemen aan de quiz. Inloggen kan na <a href="http://www.allmoocs.nl/register/">registratie</a>. Alle gegevens worden eerst gecontroleerd op authenticiteit, voordat toegang wordt verleend.
