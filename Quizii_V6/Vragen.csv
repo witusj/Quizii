@@ -2,13 +2,13 @@ Set,Onderwerp,Subcategorie,Type,Vraag,Antwoord,Alternatief 1,Alternatief 2,Alter
 1,Financial Accounting,Vermogensbehoefte,MC,Welk overzicht gebruikt een organisatie voor de bepaling van de behoefte aan externe financiering?,liquiditeitsbegroting,winst-en-verliesrekening,resultatenbegroting,balans
 1,Financial Accounting,Vermogensbehoefte,MC,Een lagere gemiddelde voorraad (bijvoorbeeld door JIT) heeft een positief effect op:,de omloopsnelheid van het totaal vermogen,de mogelijkheid om op korte termijn dividend uit te keren,de afschrijvingskosten,de waarde van de activa
 1,Financial Accounting,Vermogensbehoefte,MC,In de premie die een factoringbedrijf in rekening brengt zit een vergoeding voor:,insolventierisico,transportkosten,facturering van de geleverde goederen,BTW verrekening
-1,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 5 jaar voor 100000 EUR. De restwaarde is 0 EUR. De machine is voor 50 procent gefinancierd met vreemdvermogen en voor het overige via eigen middelen. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
+1,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 5 jaar voor 100.000 EUR. De restwaarde is 0 EUR. De machine is voor 50 procent gefinancierd met vreemd vermogen en voor het overige met middelen uit de verkoop van oude machines. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
 - Grondstoffen: 8 EUR
 - Salarissen: 12 EUR
 De producten worden voor 50 EUR per stuk verkocht (contant). Voor de komende 5 jaar gaat men er van uit dat de machine jaarlijks 2.000 eenheden zal produceren, die direct zullen worden verkocht.
-Bereken de mutatie van de liquide middelen in het tweede jaar.",50000,40000,30000,60000
+Bereken de jaarlijkse mutatie van de post ""Liquide middelen"" ten gevolge van de aanschaf.",50000,40000,30000,60000
 1,Financial Accounting,Vermogensbehoefte,MC,Eigen vermogen is risicodragend omdat:,de vergoeding voor de vermogenverschaffers onzeker is,de vergoeding gekoppeld is aan de marktrente (EURIBOR),de waarde van aandelen kan fluctueren,het nooit wordt afgelost
-1,Financial Accounting,Vermogensbehoefte,Open,Noem de leasevorm waarbij de lessee gedurende de gehele leaseperiode economisch eigenaar  is van het geleasde activum.,[Ff]inancial,,,
+1,Financial Accounting,Vermogensbehoefte,Open,Noem de leasevorm waarbij de lessee gedurende de gehele leaseperiode economisch eigenaar  is van het geleasde activum.,[Ff]inanc,,,
 1,Financial Accounting,Vermogensbehoefte,Open,Welke dienstverlening zorgt er voor dat de gemiddelde betaaltermijn van het debiteurensaldo verminderd?,[Ff]actoring,,,
 1,Financial Accounting,Vermogensbehoefte,Open,"Een onderneming heeft aandelen uitgegeven ter waarde van 28 EUR per aandeel. Door de emissie neemt het geplaatst aandelenkapitaal met 1 EUR per aandeel toe. Een maand na de emissie is de aandelenkoers gedaald tot 25,50 EUR. Hoeveel bedroeg de agio per aandeel?",(27 ?(EUR)?),,,
 1,Financial Accounting,Vermogensbehoefte,Open,Onderneming A neemt onderneming B over. De activa van B zijn getaxeerd op een marktwaarde van 400.000 EUR. Het totale vermogen van B heeft een boekwaarde van 300.000 EUR en bestaat voor 50% uit vreemd vermogen. Alle aandelen van B zullen door A worden overgenomen voor een bedrag van 600.000 EUR. Bereken hoeveel Goodwill A betaalt bij de overname.,(350.?000 ?(EUR)?),,,
@@ -16,11 +16,11 @@ Bereken de mutatie van de liquide middelen in het tweede jaar.",50000,40000,3000
 2,Financial Accounting,Vermogensbehoefte,MC,Een vermindering van de post 'Debiteuren' heeft een positief effect op:,de omloopsnelheid van het totaal vermogen,de mogelijkheid om op korte termijn dividend uit te keren,de afschrijvingskosten,de waarde van de activa
 2,Financial Accounting,Vermogensbehoefte,MC,Intensieve financiering vermindert:,de behoefte aan externe financiering,de balanswaarde van de post liquide middelen,de omzetsnelheid van het totaal vermogen,de levensduur van de activa
 2,Financial Accounting,Vermogensbehoefte,MC,Welke balansposten worden direct beinvloed als een bedrijf overgaat op factoring?,liquide middelen en debiteuren,voorraden en debiteuren,eigen vermogen en debiteuren,voorraden en liquide middelen
-2,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 6 jaar voor 120000 EUR. De restwaarde is 0 EUR. De machine is voor 25 procent gefinancierd met vreemdvermogen en voor het overige via intensieve financiering. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
+2,Financial Accounting,Vermogensbehoefte,MC,"Een onderneming schaft een machine aan met een levensduur van 6 jaar voor 120.000 EUR. De restwaarde is 0 EUR. De machine is voor 25 procent gefinancierd met vreemdvermogen en voor het overige met middelen uit de verkoop van oude machines. De lening wordt in gelijke bedragen per jaar afgelost. Met interestkosten wordt in deze casus geen rekening gehouden. In de kostprijs van het product zijn volgende kosten opgenomen:
 - Grondstoffen: 11 EUR
 - Salarissen: 14 EUR
 De producten worden voor 50 EUR per stuk verkocht (contant).
-Bereken de mutatie van de liquide middelen.",45000,30000,25000,50000
+Bereken de jaarlijkse mutatie van de post ""Liquide middelen"" ten gevolge van de aanschaf.",45000,30000,25000,50000
 ,,,,,,,,
 2,Financial Accounting,Vermogensbehoefte,Open,"Noem het systeem waarbij vorderingen op klanten worden verpand en het te vorderen bedrag direct (of in tranches) wordt uitgekeerd (eventueel onder aftrek van kosten voor administratie, verzekering en rente).",[Ff]actoring,,,
 2,Financial Accounting,Vermogensbehoefte,Open,Noem de leasevorm waardoor balansverkorting plaatsvindt.,[Oo]perational,,,
