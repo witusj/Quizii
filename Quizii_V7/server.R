@@ -7,30 +7,34 @@ source('Setup.R')
 #Set up server
 shinyServer(function(input, output, session) {
   
-  m <- sample(c(1:3, size =1)
-  questionsMC <<- questionsMC[questionsMC$Type = m,]
-  questionsOpen <<- questionsOpen[questionsOpen$Type = m,]            
+  ## Choose set of questions by sampling
+  m <- sample(3, size =1)
+  questionsMCSet <<- questionsMC[questionsMC$Set == m,]
+  questionsOpenSet <<- questionsOpen[questionsOpen$Set == m,]
+  
               
-  ##Sample n MC questions from database and for each MC question randomly choose
+  ##Sample n MC and open questions from database. For each MC question randomly choose
   ##order of answers. Save correct answers in reactive value variables.
-  n <- sample(c(1:length(questionsMC$Vraag)), size =3)
+  
+  n <- sample(c(1:length(questionsMCSet$Vraag)), size =3)
   a <- sample(c(6:9), size =4, replace=FALSE)
   b <- sample(c(6:9), size =4, replace=FALSE)
   d <- sample(c(6:9), size =4, replace=FALSE)
   
-  vraagMC <<- questionsMC[n,]
-  vraagOpen <<- questionsOpen[n,]
+  cat('m = ', m, '\n', 'n = ', n, '\n')
+  vraagMC <<- questionsMCSet[n,]
+  vraagOpen <<- questionsOpenSet[n,]
   
   values <- reactiveValues()
   values[['corr1']] <- vraagMC$Antwoord[1]
   values[['corr2']] <- vraagMC$Antwoord[2]
   values[['corr3']] <- vraagMC$Antwoord[3]
   values[['corr4']] <- vraagOpen$Antwoord[1]
-  values[['corr4']] <- vraagOpen$Antwoord[2]
-  values[['corr4']] <- vraagOpen$Antwoord[3]
+  values[['corr5']] <- vraagOpen$Antwoord[2]
+  values[['corr6']] <- vraagOpen$Antwoord[3]
   
   ##Build user interface with 5 MC and 5 open questions. Save choices
-  ##in reactive variables. Set initial choice to zero (no choice)
+  ##in reactive variables. Set initial choice of radio buttons to zero (no choice)
   output$ui <- renderUI({fluidPage(
         
     radioButtons('answ1', paste('Q1 -',vraagMC$Vraag[1]),
@@ -68,28 +72,30 @@ shinyServer(function(input, output, session) {
   rltInput1 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ1, values$corr1,1),
                                      default = 'Choose', quiet = TRUE))
-                        })
+                         })
   rltInput2 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ2, values$corr2,2),
                                              default = 'Choose', quiet = TRUE))
-                        })
+                         })
   rltInput3 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ3, values$corr3,3),
                                              default = 'Choose', quiet = TRUE))
-                        })
+                         })
   
   rltInput4 <- reactive({input$goButton 
                          isolate(try_default(chkQuestionOpen(input$answ4, values$corr4),
                                              default = 'Leeg', quiet = TRUE))
+                         })
                          
   rltInput5 <- reactive({input$goButton 
                          isolate(try_default(chkQuestionOpen(input$answ5, values$corr5),
                                             default = 'Leeg', quiet = TRUE))
+                         }) 
                          
   rltInput6 <- reactive({input$goButton 
                          isolate(try_default(chkQuestionOpen(input$answ6, values$corr6),
-                                            default = 'Leeg', quiet = TRUE))                       
-  })
+                                            default = 'Leeg', quiet = TRUE))
+                         })
   
   ##Print results
   output$result1 <- renderText({paste('V1:',rltInput1())})
@@ -134,7 +140,8 @@ shinyServer(function(input, output, session) {
   ##Check whether number of trials variable is empty and if not save data to csv
   observe({if(length(trials()) != 0) {
           quiz <- data.frame(Sys.time(), urlText(), session$clientData$url_search,
-                             userData()[[1]][1], userData()[[1]][2], trials(), scrInput1(), scrInput2(), scrInput3(), scrInput4(), scrInput5(), scrInput6())
+                             userData()[[1]][1], userData()[[1]][2], trials(),
+                             scrInput1(), scrInput2(),scrInput3(), scrInput4(), scrInput5(), scrInput6(), m, n[1], n[2], n[3])
           write.table(quiz, file='results.csv', append=TRUE, sep=",", row.names=FALSE,
                       col.names=FALSE)
           }
