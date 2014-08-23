@@ -1,0 +1,189 @@
+library('MASS')
+
+#Question 1
+n1 <- sample(5,1)
+n2 <- sample(4,1)
+
+n1n2 <- as.double(paste0(n1,n2))
+cat(n1n2)
+
+txt <- paste0(11, ' x ', n1n2, ' =')
+corr <- 11*n1n2
+fls1 <- 10*n1n2
+fls2 <- 900*n1+11*n1n2
+fls3 <- 11*(n1+n2)
+
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+cat(qst$txt[1], qst$corr[1], qst$fls1[1], qst$fls2[1], qst$fls3[1])
+qst
+
+# Question 2
+coeff <- sample(2:9, 4)
+a <- coeff[1]
+b <- coeff[2]
+c <- coeff[3]
+d <- coeff[4]
+
+txt <- c(txt, paste0(a,' + (', b, ' + ', c, ') x ', d, ' ='))
+
+corr = c(corr, a+(b+c)*d)
+fls1 <- c(fls1, a+b+c*d)
+fls2 <- c(fls2, (a+b+c)*d)
+fls3 <- c(fls3, a+b+c+d)
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 3
+coeff <- sample(c(3, 5, 7, 11), 2)
+e <- coeff[1]
+f <- coeff[2]
+
+txt <- c(txt, paste0(e-1,'/', e, ' x ', 2*e, '/', f, ' ='))
+
+# corr = c(corr, paste0(2*(e-1),'/', f))
+# fls1 <- c(fls1, 2)
+# fls2 <- c(fls2, paste0(e-1,'/', f))
+# fls3 <- c(fls3, paste0(e,'/', f))
+
+corr = c(corr, as.character(fractions(2*(e-1)/f)))
+fls1 <- c(fls1, as.character(fractions(f/e)))
+fls2 <- c(fls2, as.character(fractions((e-1)/f)))
+fls3 <- c(fls3, as.character(fractions(e/f)))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 4
+coeff <- sample(list(c('a','b'), c('m','n'), c('p','q'), c('x','y')), 1)
+g <- coeff[[1]][1]
+h <- coeff[[1]][2]
+
+txt <- c(txt, paste0('(',g,' + ', h, ')^2', ' ='))
+
+corr = c(corr, paste0(g, '^2', ' + 2*', g, '*', h, ' + ', h, '^2'))
+fls1 <- c(fls1, paste0(g, '^2', ' + ', h, '^2'))
+fls2 <- c(fls2, paste0(g, ' + ', h, '^2'))
+fls3 <- c(fls3, paste0('2 * (', g,' + ', h, ')'))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 5
+coeff <- sample(4, 1)
+i <- coeff+50
+
+txt <- c(txt, paste0(i, '^2', ' ='))
+
+corr = c(corr, i^2)
+fls1 <- c(fls1, 2500+coeff^2)
+fls2 <- c(fls2, 2*i)
+fls3 <- c(fls3, 50*i)
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 6
+coeff <- sample(c('a','b', 'p', 'r', 't', 'x'), 1)
+j <- coeff
+
+
+txt <- c(txt, paste0('(1 + ', j,')^-1 ='))
+
+corr = c(corr, paste0('1 / (1 + ', j,')'))
+fls1 <- c(fls1, paste0('1 + ', j))
+fls2 <- c(fls2, paste0('(1 + ', j,')^2'))
+fls3 <- c(fls3, paste0('1 + ', j,'^-1'))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 7
+coeff <- sample(c(11, 12, 15, 20), 1)
+k <- coeff
+
+
+txt <- c(txt, paste0(k^2,'^0,5 ='))
+
+corr = c(corr, k)
+fls1 <- c(fls1, 0.5*k^2)
+fls2 <- c(fls2, paste0('1/',k^2))
+fls3 <- c(fls3, paste0('1/',k))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 8
+coeff <- sample(c(2:8), 2)
+l <- coeff[1]
+m <- coeff[2]
+
+txt <- c(txt, paste0('x^',l,'*x^',m,'='))
+
+corr = c(corr, paste0('x^',l+m))
+fls1 <- c(fls1, paste0('x^',l*m))
+fls2 <- c(fls2, paste0(l+m,'x'))
+fls3 <- c(fls3, paste0('x*',l,'*x*',m))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 9
+coeff <- sample(c(1:10), 1)
+n <- 5*coeff
+
+txt <- c(txt, paste0(n,'/0,2='))
+
+corr = c(corr, n/0.2)
+fls1 <- c(fls1, n*0.2)
+fls2 <- c(fls2, n/2)
+fls3 <- c(fls3, n*10)
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 10
+coeff <- sample(c(2:4), 1)
+o <- coeff
+
+txt <- c(txt, paste0('Als 5 EUR = 20% en X EUR = ', o*20, '%, dan is X ='))
+
+corr = c(corr, 5*o)
+fls1 <- c(fls1, o)
+fls2 <- c(fls2, 25)
+fls3 <- c(fls3, o-1)
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 11
+coeff <- sample(c(2, 3, 5, 7, 11), 2)
+p <- coeff[1]
+q <- coeff[2]
+
+txt <- c(txt, paste0('Als a + b = c en a / b = ', p, ' / ', q, ' dan geldt a / c ='))
+
+corr = c(corr, paste0(p, ' / ', p+q))
+fls1 <- c(fls1, round(p/q, 2))
+fls2 <- c(fls2, paste0(q, ' / ', p))
+fls3 <- c(fls3, paste0(q, ' / ', p+q))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 12
+coeff <- sample(c(2, 3, 5, 7, 11), 2)
+p <- coeff[1]
+q <- coeff[2]
+
+txt <- c(txt, paste0('(', p, ' * a + (a - b) * ', q, ') / ', p, ' ='))
+
+corr = c(corr, paste0('a + (a - b) * ', q, ' / ', p))
+fls1 <- c(fls1, paste0('(',(p+1),'*a - b) * ', q, ' / ', p))
+fls2 <- c(fls2, paste0((p+1),'*a - b * ', q, ' / ', p))
+fls3 <- c(fls3, paste0('a - b * ', q, ' / ', p))
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst
+
+# Question 13
+coeff <- sample(c(4, 6, 5, 8, 9), 1)
+r <- coeff
+
+txt <- c(txt, paste0('Y = 1 / (1,0', r, ')^t => als t toeneemt dan:'))
+
+corr = c(corr, 'neemt Y af')
+fls1 <- c(fls1, 'groeit Y lineair')
+fls2 <- c(fls2, 'groeit Y exponentieel')
+fls3 <- c(fls3, 'verandert Y niet')
+qst <- data.frame(txt, corr, fls1, fls2, fls3)
+qst

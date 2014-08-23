@@ -8,7 +8,7 @@ source('Setup.R')
 shinyServer(function(input, output, session) {
   
   ## Choose set of questions by sampling
-  m <- sample(3, size =1)
+  m <- sample(4, size =1)
   questionsMCSet <<- questionsMC[questionsMC$Set == m,]
   questionsOpenSet <<- questionsOpen[questionsOpen$Set == m,]
   
@@ -37,31 +37,31 @@ shinyServer(function(input, output, session) {
   ##in reactive variables. Set initial choice of radio buttons to zero (no choice)
   output$ui <- renderUI({fluidPage(
         
-    radioButtons('answ1', paste('Q1 -',vraagMC$Vraag[1]),
+    radioButtons('answ1', paste('V1 -',vraagMC$Vraag[1]),
                  c(vraagMC[1,a[1]],
                    vraagMC[1,a[2]],
                    vraagMC[1,a[3]],
                    vraagMC[1,a[4]]), selected = 0),
     
-    radioButtons('answ2', paste('Q2 -',vraagMC$Vraag[2]),
+    radioButtons('answ2', paste('V2 -',vraagMC$Vraag[2]),
                  c(vraagMC[2,b[1]],
                    vraagMC[2,b[2]],
                    vraagMC[2,b[3]],
                    vraagMC[2,b[4]]), selected = 0),
     
-    radioButtons('answ3', paste('Q3 -',vraagMC$Vraag[3]),
+    radioButtons('answ3', paste('V3 -',vraagMC$Vraag[3]),
                  c(vraagMC[3,d[1]],
                    vraagMC[3,d[2]],
                    vraagMC[3,d[3]],
                    vraagMC[3,d[4]]), selected = 0),
     
-    textInput('answ4', vraagOpen$Vraag[1], value = ''),
+    textInput('answ4', paste('V4 -',vraagOpen$Vraag[1]), value = ''),
     
-    textInput('answ5', vraagOpen$Vraag[2], value = ''),
+    textInput('answ5', paste('V5 -',vraagOpen$Vraag[2]), value = ''),
     
-    textInput('answ6', vraagOpen$Vraag[3], value = ''),
+    textInput('answ6', paste('V6 -',vraagOpen$Vraag[3]), value = ''),
     
-    actionButton('goButton', 'Send')
+    actionButton('goButton', 'Verzenden')
   )
     })
   
@@ -71,15 +71,15 @@ shinyServer(function(input, output, session) {
   ##Initial choice (no choice) is neutral and equals 'Choose'
   rltInput1 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ1, values$corr1,1),
-                                     default = 'Choose', quiet = TRUE))
+                                     default = 'Leeg', quiet = TRUE))
                          })
   rltInput2 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ2, values$corr2,2),
-                                             default = 'Choose', quiet = TRUE))
+                                             default = 'Leeg', quiet = TRUE))
                          })
   rltInput3 <- reactive({input$goButton
                          isolate(try_default(chkQuestion(input$answ3, values$corr3,3),
-                                             default = 'Choose', quiet = TRUE))
+                                             default = 'Leeg', quiet = TRUE))
                          })
   
   rltInput4 <- reactive({input$goButton 
@@ -114,8 +114,8 @@ shinyServer(function(input, output, session) {
   scrInput6 <- reactive({scrQuestion(rltInput6(),6)*(rltInput6()=='Correct')})
   
   ##Calculate total points left and print result
-  output$scr <- renderText({paste0('Your score is: ',scrInput1() + scrInput2() + scrInput3() + scrInput4() + scrInput5() + scrInput6(),
-                                   ' (which equals ', round((scrInput1() + scrInput2() + scrInput3() + scrInput4() + scrInput5() + scrInput6())*100/12,0),
+  output$scr <- renderText({paste0('Je score is: ',scrInput1() + scrInput2() + scrInput3() + scrInput4() + scrInput5() + scrInput6(),
+                                   ' (of ', round((scrInput1() + scrInput2() + scrInput3() + scrInput4() + scrInput5() + scrInput6())*100/12,0),
                                    '%)')})
 
   ##Prepare user data and print
@@ -126,20 +126,20 @@ shinyServer(function(input, output, session) {
   
   ##Assess number of trials and print
   trials <- reactive({input$goButton})
-  output$value <- renderText(paste0('Trials: ', trials()))
+  output$value <- renderText(paste0('Pogingen: ', trials()))
   
   urlText <- renderText({
     paste(sep = "",
-          session$clientData$url_protocol, "\\",
-          session$clientData$url_hostname, "\\",
-          session$clientData$url_port,":",
+          session$clientData$url_protocol, "//",
+          session$clientData$url_hostname, ":",
+          session$clientData$url_port,"",
           session$clientData$url_pathname
     )
   })
   
   ##Check whether number of trials variable is empty and if not save data to csv
   observe({if(length(trials()) != 0) {
-          quiz <- data.frame(Sys.time(), urlText(), session$clientData$url_search,
+          quiz <- data.frame(Sys.time(), urlText(), session$clientData$url_search, 
                              userData()[[1]][1], userData()[[1]][2], trials(),
                              scrInput1(), scrInput2(),scrInput3(), scrInput4(), scrInput5(), scrInput6(), m, n[1], n[2], n[3])
           write.table(quiz, file='results.csv', append=TRUE, sep=",", row.names=FALSE,
